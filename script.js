@@ -45,7 +45,7 @@ const PRODUCTS = [
         price: "Rs. 699",
         rating: "4.7",
         description: "A bunch of fresh Tuberose (Rajnigandha) stalks, known for their sweet, captivating fragrance that naturalizes the entire household.",
-        img: "https://gulmahal.in/wp-content/uploads/elementor/thumbs/1-1-rbvxvpxejq0amhq9br6vxlenoxwyf4zh4ty9kig7k4.webp"
+        img: "assets/tuberose_rajnigandha_bunch.png"
     },
     {
         name: "Sunshine Sunflower Bunch",
@@ -54,7 +54,7 @@ const PRODUCTS = [
         price: "Rs. 899",
         rating: "4.7",
         description: "A bright and cheery arrangement featuring big, beautiful sunflowers, handpicked to radiate positive vibes and brightness.",
-        img: "https://gulmahal.in/wp-content/uploads/2025/11/Sunshine-Sunflower-bouquet.webp"
+        img: "assets/sunshine_sunflower_bunch.png"
     },
     {
         name: "Yellow Tulips in Vase",
@@ -63,7 +63,7 @@ const PRODUCTS = [
         price: "Rs. 2999",
         rating: "4.8",
         description: "A luxury arrangement of fresh yellow tulips, styled in a luxurious glass vase. Adds a contemporary touch of elegance to any room.",
-        img: "https://gulmahal.in/wp-content/uploads/elementor/thumbs/Yellow-Tulips-in-a-vase-rcp3spnv5n8p8bhlfpoh1nl5b5cl7sfcekqqw0h0ec.webp"
+        img: "assets/yellow_tulips_vase.png"
     },
     {
         name: "White Tulips in Vase",
@@ -72,7 +72,7 @@ const PRODUCTS = [
         price: "Rs. 2999",
         rating: "4.9",
         description: "Sophisticated and pure, this arrangement features pristine white tulips in a premium glass vase, perfect for minimalist spaces.",
-        img: "https://gulmahal.in/wp-content/uploads/elementor/thumbs/7-rco4qtc02nsqq8gs1918n39nix31k4s0wrdywzi1qc.webp"
+        img: "assets/white_tulips_vase.png"
     },
     {
         name: "Dark Pink Gerbera in Vase",
@@ -81,7 +81,7 @@ const PRODUCTS = [
         price: "Rs. 799",
         rating: "4.7",
         description: "Cheerful dark pink gerbera daisies arranged in a clear glass vase with decorative stones. Ideal for gifting.",
-        img: "https://gulmahal.in/wp-content/uploads/2024/12/Dark-Pink-Gerbera-in-vase.webp"
+        img: "assets/dark_pink_gerbera_vase.png"
     },
     {
         name: "Fresh Lotus-Kamal Flowers",
@@ -90,7 +90,7 @@ const PRODUCTS = [
         price: "Rs. 150",
         rating: "5.0",
         description: "Sacred, handpicked fresh pink lotus flowers (Kamal) for spiritual offerings, rituals, and festive home decors.",
-        img: "https://gulmahal.in/wp-content/uploads/elementor/thumbs/Fresh-Lotus-Kamal-flowers-re9h612mm778g1nr0n23te8w454t2zwrupzrzjnryc.webp"
+        img: "assets/fresh_lotus_kamal.png"
     },
     {
         name: "Lotus Flower Garland",
@@ -99,7 +99,7 @@ const PRODUCTS = [
         price: "Rs. 1999",
         rating: "5.0",
         description: "Handcrafted auspicious lotus flower garland, woven traditionally for weddings, temple poojas, and festive occasions.",
-        img: "https://gulmahal.in/wp-content/uploads/elementor/thumbs/Lotus-Wedding-Garland-rcuw5hzgbj94786e3ywo6uvpqmxd0612c0uh1yzbr8.webp"
+        img: "assets/lotus_flower_garland.png"
     },
     {
         name: "Red Rose Wedding Garland",
@@ -108,7 +108,7 @@ const PRODUCTS = [
         price: "Rs. 2499",
         rating: "4.9",
         description: "An elegant, dense garland crafted with premium fresh red rose petals, designed to add traditional grandeur to wedding ceremonies.",
-        img: "https://gulmahal.in/wp-content/uploads/elementor/thumbs/Red-rose-wedding-garland-rcuw5qg011kp3pu3qkkbbaqv33rnxfynd6pudgms78.webp"
+        img: "assets/red_rose_wedding_garland.png"
     },
     {
         name: "Traditional Pooja Garland",
@@ -117,7 +117,7 @@ const PRODUCTS = [
         price: "Rs. 499",
         rating: "4.6",
         description: "Fresh daily pooja garland woven with marigold and seasonal flowers, ideal for daily rituals and home decoration.",
-        img: "https://gulmahal.in/wp-content/uploads/elementor/thumbs/Customer-Orders-qxbrnq5ceh7443jjohqbznbcib4nfvxsvfyekgu6h0.png"
+        img: "assets/traditional_pooja_garland.png"
     },
     {
         name: "Weekly Home Flower Subscription",
@@ -126,7 +126,7 @@ const PRODUCTS = [
         price: "Rs. 1499",
         rating: "4.8",
         description: "Fresh flowers delivered to your home every week. Handpicked varieties curated by our expert florists to bring nature inside.",
-        img: "https://gulmahal.in/wp-content/uploads/elementor/thumbs/7-rco4qtc02nsqq8gs1918n39nix31k4s0wrdywzi1qc.webp"
+        img: "assets/weekly_home_subscription.png"
     },
     {
         name: "Monthly Office Flower Subscription",
@@ -135,7 +135,7 @@ const PRODUCTS = [
         price: "Rs. 4999",
         rating: "4.9",
         description: "Elegant floral arrangements delivered to your office lobby or desk every month. Kept fresh and updated automatically.",
-        img: "https://gulmahal.in/wp-content/uploads/elementor/thumbs/Premium-Bouquet-made-with-fresh-flowers-rf67u0uvo1egw2tjz3pz2tvhwj8ht5zh1lcnopbio4.webp"
+        img: "assets/monthly_office_subscription.png"
     },
     {
         name: "Premium Flower Basket",
@@ -144,7 +144,7 @@ const PRODUCTS = [
         price: "Rs. 1599",
         rating: "4.8",
         description: "An exquisite basket arrangement overflowing with premium roses, lilies, and carnations, designed for luxurious table centerpieces.",
-        img: "https://gulmahal.in/wp-content/uploads/elementor/thumbs/Premium-Flower-Basket-made-with-beautiful-flowers-1-rd59w5oj8tnz7kjactic0mdobammxa38uecuqdmiis.webp"
+        img: "assets/premium_flower_basket.png"
     },
     {
         name: "Floral Jewelry Set",
@@ -153,7 +153,7 @@ const PRODUCTS = [
         price: "Rs. 1899",
         rating: "4.9",
         description: "Intricately designed floral jewelry set including necklace, earrings, and bracelets made of fresh, long-lasting flowers for Haldi and Mehendi.",
-        img: "https://gulmahal.in/wp-content/uploads/elementor/thumbs/3-qxaeqta11un1yld86btbv0a9hyg1cz8i3qdql3rf44.png"
+        img: "assets/floral_jewelry_set.png"
     },
     {
         name: "Rakhi Special Floral Gift Set",
@@ -162,7 +162,7 @@ const PRODUCTS = [
         price: "Rs. 999",
         rating: "4.9",
         description: "A gorgeous handmade Rakhi accompanied by fresh flowers, sweets, and roli-chawal for an auspicious Raksha Bandhan celebration.",
-        img: "https://gulmahal.in/wp-content/uploads/elementor/thumbs/3-qxaeqta11un1yld86btbv0a9hyg1cz8i3qdql3rf44.png"
+        img: "assets/rakhi_special_gift_set.png"
     },
     {
         name: "Diwali Marigold Hangings",
@@ -171,7 +171,7 @@ const PRODUCTS = [
         price: "Rs. 599",
         rating: "4.8",
         description: "Hand-tied premium orange and yellow marigold hangings (Torans) to decorate your home entrance beautifully for Diwali.",
-        img: "https://gulmahal.in/wp-content/uploads/elementor/thumbs/1-qxaeqf6g7c3r4fxpgnpxblucl6dj5ioj1slgdycbpg.png"
+        img: "assets/diwali_marigold_hangings.png"
     }
 ];
 
