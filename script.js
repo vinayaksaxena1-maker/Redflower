@@ -230,6 +230,12 @@ function toggleMobileMenu() {
     const icon = document.querySelector('#hamburger-btn i');
     if (navLinks) {
         navLinks.classList.toggle('active');
+        if (!navLinks.classList.contains('active')) {
+            // Reset all dropdown menus when mobile menu is closed
+            document.querySelectorAll('.dropdown-menu, .nested-dropdown-menu, .submenu-toggle').forEach(el => {
+                el.classList.remove('open');
+            });
+        }
         if (icon) {
             if (navLinks.classList.contains('active')) {
                 icon.className = 'fa-solid fa-xmark';
@@ -239,6 +245,52 @@ function toggleMobileMenu() {
         }
     }
 }
+
+// Product dropdown handler (prevents immediate navigation on mobile/tablet)
+function handleProductDropdownClick(event) {
+    if (window.innerWidth <= 900) {
+        event.preventDefault();
+        event.stopPropagation();
+        const dropdownMenu = event.currentTarget.nextElementSibling;
+        if (dropdownMenu) {
+            dropdownMenu.classList.toggle('open');
+        }
+    } else {
+        // Desktop: immediately navigate and filter
+        scrollToSection('products');
+        setCategoryFilter('all');
+    }
+}
+
+// Category dropdown handler (prevents immediate navigation on mobile/tablet)
+function handleCategoryDropdownClick(event, category) {
+    if (window.innerWidth <= 900) {
+        event.preventDefault();
+        event.stopPropagation();
+        
+        const currentToggle = event.currentTarget;
+        const nestedMenu = currentToggle.nextElementSibling;
+        if (nestedMenu) {
+            // Close other open nested dropdowns inside the same parent menu
+            const parentMenu = currentToggle.closest('.dropdown-menu');
+            if (parentMenu) {
+                parentMenu.querySelectorAll('.nested-dropdown-menu').forEach(menu => {
+                    if (menu !== nestedMenu) {
+                        menu.classList.remove('open');
+                        const toggle = menu.previousElementSibling;
+                        if (toggle) toggle.classList.remove('open');
+                    }
+                });
+            }
+            nestedMenu.classList.toggle('open');
+            currentToggle.classList.toggle('open');
+        }
+    } else {
+        // Desktop: immediately navigate and filter
+        setCategoryFilter(category, 'all');
+    }
+}
+
 
 // SPA Section Navigation (Show/Hide sections as separate pages)
 function scrollToSection(sectionId) {

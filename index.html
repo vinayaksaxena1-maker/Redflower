@@ -42,11 +42,11 @@
             
             <!-- Dropdown for Products -->
             <div class="nav-dropdown">
-                <a href="#products" class="nav-link dropdown-toggle" onclick="scrollToSection('products'); setCategoryFilter('all')">Product <i class="fa-solid fa-chevron-down"></i></a>
+                <a href="#products" class="nav-link dropdown-toggle" onclick="handleProductDropdownClick(event)">Product <i class="fa-solid fa-chevron-down"></i></a>
                 <div class="dropdown-menu">
                     <!-- Bouquets Submenu -->
                     <div class="dropdown-submenu-item">
-                        <a href="#products" onclick="setCategoryFilter('bouquets', 'all')" class="submenu-toggle">Bouquets <i class="fa-solid fa-chevron-right"></i></a>
+                        <a href="#products" onclick="handleCategoryDropdownClick(event, 'bouquets')" class="submenu-toggle">Bouquets <i class="fa-solid fa-chevron-right"></i></a>
                         <div class="nested-dropdown-menu">
                             <a href="#products" onclick="selectSubcategory('bouquets', 'all')">All Bouquets</a>
                             <a href="#products" onclick="selectSubcategory('bouquets', 'standard')">Standard</a>
@@ -57,7 +57,7 @@
 
                     <!-- Flowers Submenu -->
                     <div class="dropdown-submenu-item">
-                        <a href="#products" onclick="setCategoryFilter('flowers', 'all')" class="submenu-toggle">Flowers <i class="fa-solid fa-chevron-right"></i></a>
+                        <a href="#products" onclick="handleCategoryDropdownClick(event, 'flowers')" class="submenu-toggle">Flowers <i class="fa-solid fa-chevron-right"></i></a>
                         <div class="nested-dropdown-menu">
                             <a href="#products" onclick="selectSubcategory('flowers', 'all')">All Flowers</a>
                             <a href="#products" onclick="selectSubcategory('flowers', 'cut')">Cut Flowers</a>
@@ -68,7 +68,7 @@
 
                     <!-- Garlands Submenu -->
                     <div class="dropdown-submenu-item">
-                        <a href="#products" onclick="setCategoryFilter('garlands', 'all')" class="submenu-toggle">Garlands <i class="fa-solid fa-chevron-right"></i></a>
+                        <a href="#products" onclick="handleCategoryDropdownClick(event, 'garlands')" class="submenu-toggle">Garlands <i class="fa-solid fa-chevron-right"></i></a>
                         <div class="nested-dropdown-menu">
                             <a href="#products" onclick="selectSubcategory('garlands', 'all')">All Garlands</a>
                             <a href="#products" onclick="selectSubcategory('garlands', 'wedding')">Wedding Garlands</a>
@@ -79,7 +79,7 @@
 
                     <!-- Subscriptions Submenu -->
                     <div class="dropdown-submenu-item">
-                        <a href="#products" onclick="setCategoryFilter('subscription', 'all')" class="submenu-toggle">Subscriptions <i class="fa-solid fa-chevron-right"></i></a>
+                        <a href="#products" onclick="handleCategoryDropdownClick(event, 'subscription')" class="submenu-toggle">Subscriptions <i class="fa-solid fa-chevron-right"></i></a>
                         <div class="nested-dropdown-menu">
                             <a href="#products" onclick="selectSubcategory('subscription', 'all')">All Subscriptions</a>
                             <a href="#products" onclick="selectSubcategory('subscription', 'weekly')">Weekly</a>
@@ -89,7 +89,7 @@
 
                     <!-- Decorations Submenu -->
                     <div class="dropdown-submenu-item">
-                        <a href="#products" onclick="setCategoryFilter('decorations', 'all')" class="submenu-toggle">Decorations <i class="fa-solid fa-chevron-right"></i></a>
+                        <a href="#products" onclick="handleCategoryDropdownClick(event, 'decorations')" class="submenu-toggle">Decorations <i class="fa-solid fa-chevron-right"></i></a>
                         <div class="nested-dropdown-menu">
                             <a href="#products" onclick="selectSubcategory('decorations', 'all')">All Decorations</a>
                             <a href="#products" onclick="selectSubcategory('decorations', 'home')">Home Decor</a>
@@ -101,7 +101,7 @@
 
                     <!-- Occasions Submenu -->
                     <div class="dropdown-submenu-item">
-                        <a href="#products" onclick="setCategoryFilter('occasions', 'all')" class="submenu-toggle">Occasions <i class="fa-solid fa-chevron-right"></i></a>
+                        <a href="#products" onclick="handleCategoryDropdownClick(event, 'occasions')" class="submenu-toggle">Occasions <i class="fa-solid fa-chevron-right"></i></a>
                         <div class="nested-dropdown-menu">
                             <a href="#products" onclick="selectSubcategory('occasions', 'all')">All Occasions</a>
                             <a href="#products" onclick="selectSubcategory('occasions', 'rakhi')">Rakhi Collection</a>
