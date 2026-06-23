@@ -224,25 +224,49 @@ const SUBCATEGORY_MAP = {
 let currentCategory = 'all';
 let currentSubcategory = 'all';
 
-// SPA Section Navigation
+// Mobile Hamburger Menu Toggle
+function toggleMobileMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    const icon = document.querySelector('#hamburger-btn i');
+    if (navLinks) {
+        navLinks.classList.toggle('active');
+        if (icon) {
+            if (navLinks.classList.contains('active')) {
+                icon.className = 'fa-solid fa-xmark';
+            } else {
+                icon.className = 'fa-solid fa-bars';
+            }
+        }
+    }
+}
+
+// SPA Section Navigation (Show/Hide sections as separate pages)
 function scrollToSection(sectionId) {
     const sections = ['home', 'about', 'products', 'contact'];
     
     sections.forEach(id => {
         const el = document.getElementById(id);
-        if (id === sectionId) {
-            el.classList.remove('hidden-section');
-            el.style.opacity = 0;
-            el.style.transform = 'translateY(15px)';
-            
-            // Trigger reflow for transition
-            setTimeout(() => {
-                el.style.opacity = 1;
-                el.style.transform = 'translateY(0)';
-            }, 50);
-        } else {
-            el.classList.add('hidden-section');
+        if (el) {
+            if (id === sectionId) {
+                el.classList.remove('hidden-section');
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(15px)';
+                
+                // Trigger reflow for transition
+                setTimeout(() => {
+                    el.style.opacity = 1;
+                    el.style.transform = 'translateY(0)';
+                }, 50);
+            } else {
+                el.classList.add('hidden-section');
+            }
         }
+    });
+
+    // Reset window scroll position to the top of the newly shown section
+    window.scrollTo({
+        top: 0,
+        behavior: 'instant'
     });
 
     // Update active nav-link state
@@ -252,13 +276,21 @@ function scrollToSection(sectionId) {
             link.classList.add('active');
         }
     });
+
+    // Close mobile menu if active
+    const navLinks = document.querySelector('.nav-links');
+    const icon = document.querySelector('#hamburger-btn i');
+    if (navLinks && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        if (icon) icon.className = 'fa-solid fa-bars';
+    }
 }
 
 // ----------------------------------------------------
 // DYNAMIC PRODUCTS RENDERING & FILTERING
 // ----------------------------------------------------
 
-function setCategoryFilter(category, subcategory = 'all') {
+function setCategoryFilter(category, subcategory = 'all', shouldScroll = true) {
     currentCategory = category;
     currentSubcategory = subcategory;
     
@@ -269,7 +301,9 @@ function setCategoryFilter(category, subcategory = 'all') {
     renderProducts();
 
     // Scroll to products section
-    scrollToSection('products');
+    if (shouldScroll) {
+        scrollToSection('products');
+    }
 }
 
 function selectSubcategory(category, subcategory) {
@@ -487,7 +521,91 @@ function scrollCarousel(direction) {
     }
 }
 
+// Theme Switching Functionality (Light & Dark Theme)
+function toggleTheme() {
+    const body = document.body;
+    const btnIcon = document.querySelector('.theme-toggle-btn i');
+    if (!btnIcon) return;
+    
+    body.classList.toggle('light-theme');
+    
+    if (body.classList.contains('light-theme')) {
+        btnIcon.className = 'fa-solid fa-sun';
+        localStorage.setItem('theme', 'light');
+    } else {
+        btnIcon.className = 'fa-solid fa-moon';
+        localStorage.setItem('theme', 'dark');
+    }
+}
+
+// Contact Us Promo Popup Functions
+function openContactPopup() {
+    const popup = document.getElementById('contact-popup');
+    if (popup) {
+        popup.classList.add('show');
+    }
+}
+
+function closeContactPopup(event) {
+    const popup = document.getElementById('contact-popup');
+    if (!popup) return;
+    
+    // Close if click is directly on overlay background or close button
+    if (!event || event.target === popup) {
+        popup.classList.remove('show');
+    }
+}
+
 // Initialize on page load
 window.addEventListener('DOMContentLoaded', () => {
-    setCategoryFilter('all');
+    // Restore saved theme preference (Default is Light Theme)
+    const savedTheme = localStorage.getItem('theme');
+    const btnIcon = document.querySelector('.theme-toggle-btn i');
+    if (savedTheme === 'dark') {
+        document.body.classList.remove('light-theme');
+        if (btnIcon) btnIcon.className = 'fa-solid fa-moon';
+    } else {
+        document.body.classList.add('light-theme');
+        if (btnIcon) btnIcon.className = 'fa-solid fa-sun';
+    }
+
+    // Force the browser to start at the top (Home/Hero) and clear any URL hash
+    if (window.location.hash && window.location.hash !== '#home') {
+        history.replaceState("", document.title, window.location.pathname + window.location.search);
+    }
+
+    // Prevent browser from restoring scroll position automatically on reload
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+
+    setCategoryFilter('all', 'all', false); // Load products silently without scrolling
+
+    // Force window to scroll instantly to the top (Home/Hero)
+    window.scrollTo({ top: 0, behavior: 'instant' });
+
+    // Mobile/Tablet Tactile Touch Feedback (Zoom-in on touch start, reset on end/move)
+    const cardsToTouch = document.querySelectorAll('.product-card, .category-card, .value-box, .reviews-carousel .review-card, .bento-box');
+    cardsToTouch.forEach(card => {
+        card.addEventListener('touchstart', () => {
+            card.classList.add('touch-active');
+        }, { passive: true });
+        
+        card.addEventListener('touchend', () => {
+            card.classList.remove('touch-active');
+        }, { passive: true });
+        
+        card.addEventListener('touchmove', () => {
+            card.classList.remove('touch-active');
+        }, { passive: true });
+    });
+
+    // Trigger Contact Us Promo Popup after 30 seconds
+    setTimeout(() => {
+        const productModal = document.getElementById('product-modal');
+        // Only trigger popup if user hasn't opened product modal
+        if (productModal && !productModal.classList.contains('show')) {
+            openContactPopup();
+        }
+    }, 30000);
 });
