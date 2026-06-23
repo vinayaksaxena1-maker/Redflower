@@ -1773,6 +1773,47 @@ section {
     .dropdown-menu.open {
         display: flex !important;
     }
+    
+    /* Mobile dropdown styling & alignment fixes */
+    .dropdown-menu a,
+    .nested-dropdown-menu a {
+        text-align: center !important;
+    }
+    
+    .dropdown-menu .submenu-toggle {
+        justify-content: center !important;
+        gap: 8px !important;
+    }
+    
+    .nested-dropdown-menu {
+        position: static !important;
+        width: 100% !important;
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        display: none !important;
+        background: rgba(255, 255, 255, 0.04) !important;
+        border: none !important;
+        border-radius: 8px !important;
+        padding: 5px 0 5px 12px !important;
+        margin: 4px 0 !important;
+        box-shadow: none !important;
+    }
+    
+    .dropdown-submenu-item:hover .nested-dropdown-menu,
+    .nested-dropdown-menu.open {
+        display: flex !important;
+    }
+    
+    .dropdown-submenu-item .submenu-toggle i {
+        transform: rotate(90deg) !important; /* Point downward by default on mobile */
+    }
+    
+    .dropdown-submenu-item:hover .submenu-toggle i,
+    .submenu-toggle.open i {
+        transform: rotate(180deg) !important; /* Point upward when opened */
+    }
 
     .home-section {
         gap: 25px;
@@ -1909,47 +1950,7 @@ section {
     }
 }
 
-@media (max-width: 768px) {
-    /* For tablets and mobile screens, stack nested submenus vertically inside the parent dropdown */
-    .dropdown-menu {
-        left: 50% !important;
-        transform: translateX(-50%) translateY(10px) !important;
-        width: 210px !important;
-        max-height: 450px;
-        overflow-y: auto;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-    }
-    
-    .nested-dropdown-menu {
-        position: static !important;
-        width: 100% !important;
-        transform: none !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        pointer-events: auto !important;
-        display: none !important;
-        background: rgba(255, 255, 255, 0.04) !important;
-        border: none !important;
-        border-radius: 8px !important;
-        padding: 5px 0 5px 12px !important;
-        margin: 4px 0 !important;
-        box-shadow: none !important;
-    }
-    
-    .dropdown-submenu-item:hover .nested-dropdown-menu,
-    .nested-dropdown-menu.open {
-        display: flex !important;
-    }
-    
-    .dropdown-submenu-item .submenu-toggle i {
-        transform: rotate(90deg) !important; /* Point downward by default on mobile */
-    }
-    
-    .dropdown-submenu-item:hover .submenu-toggle i,
-    .submenu-toggle.open i {
-        transform: rotate(180deg) !important; /* Point upward when hovered or opened via JS */
-    }
-}
+
 
 @media (max-width: 600px) {
     .categories-bento-grid {
