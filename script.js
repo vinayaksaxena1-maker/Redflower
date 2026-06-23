@@ -9,7 +9,7 @@ const PRODUCTS = [
         price: "Rs. 749",
         rating: "5.0",
         description: "A classic and passionate arrangement of handpicked red roses with seasonal foliage, designed to convey deep love and affection.",
-        img: "https://gulmahal.in/wp-content/uploads/elementor/thumbs/The-Perfect-Red-Rose-Bouquet-scaled-rd6ll0u4bxxbawoy2fzpsvk56mf1asxd83de3y0fgk.webp"
+        img: "assets/red_rose_bouquet.png"
     },
     {
         name: "Vibrant Yellow Rose Bouquet",
@@ -18,7 +18,7 @@ const PRODUCTS = [
         price: "Rs. 799",
         rating: "4.5",
         description: "Bring joy and warmth to their day with this radiant bouquet of fresh yellow roses, beautifully hand-tied with custom ribbons.",
-        img: "https://gulmahal.in/wp-content/uploads/elementor/thumbs/Buy-Yellow-Rose-Bouquet-Online-scaled-rf680cbtly1uxpn52u1ou8h1ns3bjx2ikv85tny8uc.webp"
+        img: "assets/yellow_rose_bouquet.png"
     },
     {
         name: "Premium Mixed Flower Bouquet",
@@ -27,7 +27,7 @@ const PRODUCTS = [
         price: "Rs. 1299",
         rating: "4.8",
         description: "An artisan combination of exotic and seasonal blossoms, creating a textured and vibrant masterpiece suitable for any elegant space.",
-        img: "https://gulmahal.in/wp-content/uploads/elementor/thumbs/Premium-Bouquet-made-with-fresh-flowers-rf67u0uvo1egw2tjz3pz2tvhwj8ht5zh1lcnopbio4.webp"
+        img: "assets/mixed_flower_bouquet.png"
     },
     {
         name: "Pink Tulips Bouquet",
@@ -36,7 +36,7 @@ const PRODUCTS = [
         price: "Rs. 2999",
         rating: "5.0",
         description: "A breathtaking arrangement of fresh premium pink tulips, elegantly wrapped in our signature premium paper. Perfect for special celebrations.",
-        img: "https://gulmahal.in/wp-content/uploads/elementor/thumbs/18-rcp3sqlpch9zjxg8a833m5clwj7yfhj2qpe8dafm84.webp"
+        img: "assets/pink_tulips_bouquet.png"
     },
     {
         name: "Tuberose / Rajnigandha Bunch",
