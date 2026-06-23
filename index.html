@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RedFlower Studio - Premium Glassmorphic Florist</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Abstract 3D Glass Mesh Background -->
+    <div class="mesh-glow-bg"></div>
+
+    <!-- Navigation Bar (Glassmorphic) -->
+    <nav class="nav-bar">
+        <div class="nav-logo" onclick="scrollToSection('home')">
+            <span class="logo-highlight">Red</span>Flower
+        </div>
+        <div class="nav-links">
+            <a href="#home" class="nav-link active" onclick="scrollToSection('home')">Home</a>
+            <a href="#about" class="nav-link" onclick="scrollToSection('about')">About Us</a>
+            
+            <!-- Dropdown for Bouquets -->
+            <div class="nav-dropdown">
+                <a href="#products" class="nav-link dropdown-toggle" onclick="scrollToSection('products'); setCategoryFilter('bouquets', 'all')">Bouquets <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="#products" onclick="selectSubcategory('bouquets', 'all')">All Bouquets</a>
+                    <a href="#products" onclick="selectSubcategory('bouquets', 'standard')">Standard Bouquet</a>
+                    <a href="#products" onclick="selectSubcategory('bouquets', 'premium')">Premium Bouquet</a>
+                    <a href="#products" onclick="selectSubcategory('bouquets', 'tulips')">Tulips Bouquet</a>
+                </div>
+            </div>
+
+            <!-- Dropdown for Flowers -->
+            <div class="nav-dropdown">
+                <a href="#products" class="nav-link dropdown-toggle" onclick="scrollToSection('products'); setCategoryFilter('flowers', 'all')">Flowers <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="#products" onclick="selectSubcategory('flowers', 'all')">All Flowers</a>
+                    <a href="#products" onclick="selectSubcategory('flowers', 'cut')">Cut Flowers</a>
+                    <a href="#products" onclick="selectSubcategory('flowers', 'exotic')">Exotic Flowers</a>
+                    <a href="#products" onclick="selectSubcategory('flowers', 'loose')">Loose Flowers</a>
+                </div>
+            </div>
+
+            <!-- Dropdown for Garlands -->
+            <div class="nav-dropdown">
+                <a href="#products" class="nav-link dropdown-toggle" onclick="scrollToSection('products'); setCategoryFilter('garlands', 'all')">Garlands <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="#products" onclick="selectSubcategory('garlands', 'all')">All Garlands</a>
+                    <a href="#products" onclick="selectSubcategory('garlands', 'wedding')">Wedding Garlands</a>
+                    <a href="#products" onclick="selectSubcategory('garlands', 'pooja')">Pooja Garlands</a>
+                    <a href="#products" onclick="selectSubcategory('garlands', 'regular')">Regular Garlands</a>
+                </div>
+            </div>
+
+            <!-- Dropdown for Subscription -->
+            <div class="nav-dropdown">
+                <a href="#products" class="nav-link dropdown-toggle" onclick="scrollToSection('products'); setCategoryFilter('subscription', 'all')">Subscriptions <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="#products" onclick="selectSubcategory('subscription', 'all')">All Subscriptions</a>
+                    <a href="#products" onclick="selectSubcategory('subscription', 'weekly')">Weekly</a>
+                    <a href="#products" onclick="selectSubcategory('subscription', 'monthly')">Monthly</a>
+                    <a href="#products" onclick="selectSubcategory('subscription', 'festive')">Festive</a>
+                </div>
+            </div>
+
+            <!-- Dropdown for Decorations -->
+            <div class="nav-dropdown">
+                <a href="#products" class="nav-link dropdown-toggle" onclick="scrollToSection('products'); setCategoryFilter('decorations', 'all')">Decorations <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="#products" onclick="selectSubcategory('decorations', 'all')">All Decorations</a>
+                    <a href="#products" onclick="selectSubcategory('decorations', 'home')">Home Decoration</a>
+                    <a href="#products" onclick="selectSubcategory('decorations', 'birthday')">Birthday Decoration</a>
+                    <a href="#products" onclick="selectSubcategory('decorations', 'room')">Room Decoration</a>
+                    <a href="#products" onclick="selectSubcategory('decorations', 'shop')">Shop Decoration</a>
+                </div>
+            </div>
+
+            <!-- Dropdown for Occasions -->
+            <div class="nav-dropdown">
+                <a href="#products" class="nav-link dropdown-toggle" onclick="scrollToSection('products'); setCategoryFilter('occasions', 'all')">Occasions <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="#products" onclick="selectSubcategory('occasions', 'all')">All Occasions</a>
+                    <a href="#products" onclick="selectSubcategory('occasions', 'rakhi')">Rakhi Collection</a>
+                    <a href="#products" onclick="selectSubcategory('occasions', 'diwali')">Diwali Collection</a>
+                    <a href="#products" onclick="selectSubcategory('occasions', 'valentines')">Valentine's Day</a>
+                    <a href="#products" onclick="selectSubcategory('occasions', 'mothers')">Mother's Day</a>
+                    <a href="#products" onclick="selectSubcategory('occasions', 'fathers')">Father's Day</a>
+                </div>
+            </div>
+
+            <a href="#contact" class="nav-link" onclick="scrollToSection('contact')">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="page-wrapper">
+        
+        <!-- SECTION 1: HOME (Landing Page) -->
+        <section id="home" class="home-section active-section">
+            <!-- Hero Row -->
+            <div class="hero-row">
+                <div class="hero-text-container">
+                    <h1 class="hero-title">Bringing <span class="serif-italic">Nature's</span> Elegance Home</h1>
+                    <p class="hero-subtitle">Experience our signature fresh red roses and luxury custom bouquets. Handpicked daily from local boutique farms for premium floral aesthetics.</p>
+                    <div class="hero-cta-group">
+                        <button class="primary-btn" onclick="scrollToSection('products')">Explore Boutique</button>
+                        <button class="secondary-btn" onclick="scrollToSection('about')">Our Story</button>
+                    </div>
+                </div>
+                <div class="hero-image-container">
+                    <div class="glass-frame">
+                        <img src="assets/hero_flower.png" alt="Fresh Premium Red Rose Bouquet" class="hero-image">
+                        <div class="ambient-glow"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Section: Featured Categories Showcase -->
+            <div class="home-sub-section categories-showcase">
+                <div class="sub-section-header">
+                    <span class="pre-title">Handcrafted Varieties</span>
+                    <h2 class="section-title">Shop by Category</h2>
+                </div>
+                <div class="categories-bento-grid">
+                    <!-- Category 1: Bouquets -->
+                    <div class="category-card" onclick="setCategoryFilter('bouquets', 'all')">
+                        <div class="category-card-glow"></div>
+                        <div class="category-img-bg">
+                            <img src="https://gulmahal.in/wp-content/uploads/elementor/thumbs/Premium-Bouquet-made-with-fresh-flowers-rf67u0uvo1egw2tjz3pz2tvhwj8ht5zh1lcnopbio4.webp" alt="Bouquets" loading="lazy">
+                        </div>
+                        <div class="category-card-content">
+                            <i class="fa-solid fa-gift category-icon"></i>
+                            <h3>Bouquets</h3>
+                            <p>Signature & luxury floral arrangements hand-tied with premium ribbons.</p>
+                        </div>
+                    </div>
+                    <!-- Category 2: Flowers -->
+                    <div class="category-card" onclick="setCategoryFilter('flowers', 'all')">
+                        <div class="category-card-glow"></div>
+                        <div class="category-img-bg">
+                            <img src="https://gulmahal.in/wp-content/uploads/elementor/thumbs/Yellow-Tulips-in-a-vase-rcp3spnv5n8p8bhlfpoh1nl5b5cl7sfcekqqw0h0ec.webp" alt="Fresh Flowers" loading="lazy">
+                        </div>
+                        <div class="category-card-content">
+                            <i class="fa-solid fa-leaf category-icon"></i>
+                            <h3>Fresh Flowers</h3>
+                            <p>Fresh cut, loose, and rare exotic blossoms direct from farms.</p>
+                        </div>
+                    </div>
+                    <!-- Category 3: Garlands -->
+                    <div class="category-card" onclick="setCategoryFilter('garlands', 'all')">
+                        <div class="category-card-glow"></div>
+                        <div class="category-img-bg">
+                            <img src="https://gulmahal.in/wp-content/uploads/elementor/thumbs/Red-rose-wedding-garland-rcuw5qg011kp3pu3qkkbbaqv33rnxfynd6pudgms78.webp" alt="Floral Garlands" loading="lazy">
+                        </div>
+                        <div class="category-card-content">
+                            <i class="fa-solid fa-circle-notch category-icon"></i>
+                            <h3>Floral Garlands</h3>
+                            <p>Intricately woven traditional garlands for weddings and poojas.</p>
+                        </div>
+                    </div>
+                    <!-- Category 4: Subscriptions -->
+                    <div class="category-card" onclick="setCategoryFilter('subscription', 'all')">
+                        <div class="category-card-glow"></div>
+                        <div class="category-img-bg">
+                            <img src="https://gulmahal.in/wp-content/uploads/elementor/thumbs/7-rco4qtc02nsqq8gs1918n39nix31k4s0wrdywzi1qc.webp" alt="Subscriptions" loading="lazy">
+                        </div>
+                        <div class="category-card-content">
+                            <i class="fa-solid fa-calendar-check category-icon"></i>
+                            <h3>Subscriptions</h3>
+                            <p>Weekly and monthly fresh flower delivery to your doorstep.</p>
+                        </div>
+                    </div>
+                    <!-- Category 5: Decorations -->
+                    <div class="category-card" onclick="setCategoryFilter('decorations', 'all')">
+                        <div class="category-card-glow"></div>
+                        <div class="category-img-bg">
+                            <img src="https://gulmahal.in/wp-content/uploads/elementor/thumbs/Premium-Flower-Basket-made-with-beautiful-flowers-1-rd59w5oj8tnz7kjactic0mdobammxa38uecuqdmiis.webp" alt="Decorations" loading="lazy">
+                        </div>
+                        <div class="category-card-content">
+                            <i class="fa-solid fa-house-chimney category-icon"></i>
+                            <h3>Decorations</h3>
+                            <p>Premium floral baskets and designs to elevate home & celebrations.</p>
+                        </div>
+                    </div>
+                    <!-- Category 6: Occasions -->
+                    <div class="category-card" onclick="setCategoryFilter('occasions', 'all')">
+                        <div class="category-card-glow"></div>
+                        <div class="category-img-bg">
+                            <img src="https://gulmahal.in/wp-content/uploads/elementor/thumbs/3-qxaeqta11un1yld86btbv0a9hyg1cz8i3qdql3rf44.png" alt="Occasions" loading="lazy">
+                        </div>
+                        <div class="category-card-content">
+                            <i class="fa-solid fa-cake-candles category-icon"></i>
+                            <h3>Occasions</h3>
+                            <p>Curated festival collections for Rakhi, Diwali, and special days.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Section: Why Choose Us -->
+            <div class="home-sub-section why-choose-us">
+                <div class="sub-section-header">
+                    <span class="pre-title">Our Promise</span>
+                    <h2 class="section-title">Crafting Pure Experience</h2>
+                </div>
+                <div class="values-grid">
+                    <div class="value-box">
+                        <div class="value-icon-wrapper"><i class="fa-solid fa-truck-fast"></i></div>
+                        <h3>Sourced at Dawn</h3>
+                        <p>While the city sleeps, our growers handpick each bloom, ensuring it arrives at your doorstep in its absolute peak of fragrance and vitality.</p>
+                    </div>
+                    <div class="value-box">
+                        <div class="value-icon-wrapper"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                        <h3>Couture Floral Artistry</h3>
+                        <p>Not just bouquets, but living sculptures. Every stem is meticulously selected and balanced using traditional Indian geometry and modern design.</p>
+                    </div>
+                    <div class="value-box">
+                        <div class="value-icon-wrapper"><i class="fa-solid fa-shield-heart"></i></div>
+                        <h3>Zero-Carbon Luxury</h3>
+                        <p>Our signature glassmorphic packaging is 100% biodegradable. Experience ultimate luxury that respects the earth.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Section: Customer Testimonials -->
+            <div class="home-sub-section testimonials">
+                <div class="sub-section-header">
+                    <span class="pre-title">Customer Stories</span>
+                    <h2 class="section-title">Loved by Thousands</h2>
+                </div>
+                <div class="reviews-stats-row">
+                    <div class="rating-badge">
+                        <span class="rating-num">4.7+ <i class="fa-solid fa-star"></i></span>
+                        <span class="rating-platform">Google Maps (310+ Reviews)</span>
+                    </div>
+                    <div class="rating-badge">
+                        <span class="rating-num">4.7+ <i class="fa-solid fa-star"></i></span>
+                        <span class="rating-platform">Justdial (340+ Reviews)</span>
+                    </div>
+                    <div class="rating-badge">
+                        <span class="rating-num">4.7+ <i class="fa-solid fa-star"></i></span>
+                        <span class="rating-platform">Trustpilot (35+ Reviews)</span>
+                    </div>
+                </div>
+                
+                <!-- Horizontal Scroll Carousel for Testimonials -->
+                <div class="reviews-carousel-wrapper">
+                    <button class="scroll-nav-btn prev" onclick="scrollCarousel(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <div class="reviews-carousel" id="reviews-carousel">
+                        <div class="review-card">
+                            <div class="review-header">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&auto=format&fit=crop&q=60" alt="Gaurav S." class="review-avatar">
+                                <div class="review-user-info">
+                                    <h4>Gaurav S.</h4>
+                                    <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                                </div>
+                            </div>
+                            <p class="review-text">"RedFlower's Rose Bouquets are absolutely beautiful. The flowers stayed fresh for more than a week, and the glassmorphic presentation was a showstopper."</p>
+                        </div>
+                        <div class="review-card">
+                            <div class="review-header">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&auto=format&fit=crop&q=60" alt="Sreeja K." class="review-avatar">
+                                <div class="review-user-info">
+                                    <h4>Sreeja K.</h4>
+                                    <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                                </div>
+                            </div>
+                            <p class="review-text">"Ordered their lotus garlands for my housewarming pooja. Intricately woven, extremely fresh, and delivered right on time. Highly recommended!"</p>
+                        </div>
+                        <div class="review-card">
+                            <div class="review-header">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&auto=format&fit=crop&q=60" alt="Najam A." class="review-avatar">
+                                <div class="review-user-info">
+                                    <h4>Najam A.</h4>
+                                    <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                                </div>
+                            </div>
+                            <p class="review-text">"Their monthly subscription has transformed my office reception. Clients always comment on the exotic tulips arrangement. Very satisfied."</p>
+                        </div>
+                        <div class="review-card">
+                            <div class="review-header">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&auto=format&fit=crop&q=60" alt="Swetha M." class="review-avatar">
+                                <div class="review-user-info">
+                                    <h4>Swetha M.</h4>
+                                    <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                                </div>
+                            </div>
+                            <p class="review-text">"The yellow rose bouquet I ordered was glowing with freshness. The attention to detail in packaging is truly luxury standard."</p>
+                        </div>
+                        <div class="review-card">
+                            <div class="review-header">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&auto=format&fit=crop&q=60" alt="Priyeta R." class="review-avatar">
+                                <div class="review-user-info">
+                                    <h4>Priyeta R.</h4>
+                                    <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                                </div>
+                            </div>
+                            <p class="review-text">"I commissioned a custom floral backdrop for an event. The design was breath-taking, blending traditional flowers with modern layout. Spectacular!"</p>
+                        </div>
+                        <div class="review-card">
+                            <div class="review-header">
+                                <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=120&auto=format&fit=crop&q=60" alt="Rohan Sharma" class="review-avatar">
+                                <div class="review-user-info">
+                                    <h4>Rohan S.</h4>
+                                    <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                                </div>
+                            </div>
+                            <p class="review-text">"Absolute value for money. The Rajnigandha bunch filled my entire home with an amazing aroma. Will definitely buy again."</p>
+                        </div>
+                        <div class="review-card">
+                            <div class="review-header">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=60" alt="Kavita Joshi" class="review-avatar">
+                                <div class="review-user-info">
+                                    <h4>Kavita J.</h4>
+                                    <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                                </div>
+                            </div>
+                            <p class="review-text">"The floral jewelry set was incredibly lightweight, fresh, and stayed vibrant throughout my Mehendi ceremony. It looked stunning."</p>
+                        </div>
+                        <div class="review-card">
+                            <div class="review-header">
+                                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=120&auto=format&fit=crop&q=60" alt="Ananya Sen" class="review-avatar">
+                                <div class="review-user-info">
+                                    <h4>Ananya S.</h4>
+                                    <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                                </div>
+                            </div>
+                            <p class="review-text">"Fascinating designs and very smooth delivery process. The White Tulips in a vase add a perfect minimalist vibe to my living room."</p>
+                        </div>
+                    </div>
+                    <button class="scroll-nav-btn next" onclick="scrollCarousel(1)"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: ABOUT US -->
+        <section id="about" class="about-section hidden-section">
+            <div class="about-content">
+                <div class="about-header">
+                    <span class="pre-title">Philosophy</span>
+                    <h2 class="section-title">The Art of Fresh Florals</h2>
+                </div>
+                <div class="about-bento-grid">
+                    <div class="bento-box text-box">
+                        <h3>Our Vision</h3>
+                        <p>We believe that flowers are nature's finest art. RedFlower Studio was founded to curate this organic beauty in modern, luxurious arrangements. Every bouquet is custom-styled by local artisans, capturing vibrant colors and fresh scents that elevate your space.</p>
+                    </div>
+                    <div class="bento-box stats-box">
+                        <div class="stat-item">
+                            <span class="stat-num">100%</span>
+                            <span class="stat-label">Fresh Daily</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-num">Custom</span>
+                            <span class="stat-label">Artisan Styled</span>
+                        </div>
+                    </div>
+                    <div class="bento-box quote-box">
+                        <p class="quote-text">"Flowers do not speak, they simply radiate beauty."</p>
+                        <span class="quote-author">— Founder, RedFlower Studio</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: PRODUCTS (Boutique) -->
+        <section id="products" class="products-section hidden-section">
+            <div class="products-header">
+                <span class="pre-title">Signature Collection</span>
+                <h2 class="section-title">Explore the Boutique</h2>
+            </div>
+            
+            <!-- Breadcrumb Navigation Path -->
+            <div class="breadcrumb-container">
+                <span id="breadcrumb-path">All Products</span>
+            </div>
+
+            <!-- Dynamic Category/Subcategory Filter Pills (Glassmorphic) -->
+            <div class="category-filters" id="subcategory-filters">
+                <!-- Dynamic subcategory buttons will be injected here via JavaScript -->
+            </div>
+
+            <!-- Dynamic grid for products -->
+            <div class="products-grid" id="products-grid">
+                <!-- Dynamic product cards will be injected here via JavaScript -->
+            </div>
+        </section>
+
+        <!-- SECTION 4: CONTACT US -->
+        <section id="contact" class="contact-section hidden-section">
+            <div class="contact-container">
+                <div class="contact-info-panel">
+                    <span class="pre-title">Get in Touch</span>
+                    <h2 class="section-title">Let's Connect</h2>
+                    <p class="contact-desc">Visit our digital showroom or order a custom commission. Our artisans are ready to bring your vision to life.</p>
+                    
+                    <div class="info-list">
+                        <div class="info-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>742 Crystal Boulevard, NY</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>design@redflower.studio</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Glass Form -->
+                <div class="contact-form-panel">
+                    <form onsubmit="handleFormSubmit(event)">
+                        <div class="form-group">
+                            <input type="text" id="name" required placeholder=" ">
+                            <label for="name">Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" required placeholder=" ">
+                            <label for="email">Email Address</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" required rows="4" placeholder=" "></textarea>
+                            <label for="message">Message</label>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section (Glassmorphic) -->
+    <footer class="glass-footer">
+        <div class="footer-grid">
+            <!-- Brand & Mission Column -->
+            <div class="footer-col brand-col">
+                <h3><span class="logo-highlight">Red</span>Flower</h3>
+                <p class="footer-mission">Blending fresh floral elegance with modern design. Handcrafted premium arrangements for your home and special moments.</p>
+            </div>
+            
+            <!-- Quick Links Column -->
+            <div class="footer-col links-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home" onclick="scrollToSection('home')">Home</a></li>
+                    <li><a href="#about" onclick="scrollToSection('about')">About Us</a></li>
+                    <li><a href="#products" onclick="setCategoryFilter('all')">Boutique</a></li>
+                    <li><a href="#contact" onclick="scrollToSection('contact')">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <!-- Categories Column -->
+            <div class="footer-col links-col">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="#products" onclick="setCategoryFilter('bouquets', 'all')">Bouquets</a></li>
+                    <li><a href="#products" onclick="setCategoryFilter('flowers', 'all')">Flowers</a></li>
+                    <li><a href="#products" onclick="setCategoryFilter('garlands', 'all')">Garlands</a></li>
+                    <li><a href="#products" onclick="setCategoryFilter('subscription', 'all')">Subscriptions</a></li>
+                </ul>
+            </div>
+            
+            <!-- Contact Details Column -->
+            <div class="footer-col contact-col">
+                <h4>Contact Info</h4>
+                <p><i class="fa-solid fa-phone"></i> +91-6303474403</p>
+                <p><i class="fa-solid fa-envelope"></i> admin@redflower.studio</p>
+                <p><i class="fa-solid fa-location-dot"></i> Hyderabad, India</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 RedFlower Studio. All rights reserved. Handcrafted with love.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Product Detail Modal (Glassmorphic) -->
+    <div class="modal-overlay" id="product-modal" onclick="closeProductModal(event)">
+        <div class="modal-box">
+            <button class="close-modal-btn" onclick="closeProductModal(null)"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-body">
+                <div class="modal-image-wrapper">
+                    <img id="modal-img" src="" alt="Product Image">
+                </div>
+                <div class="modal-text-wrapper">
+                    <h2 id="modal-title">Product Name</h2>
+                    <span class="modal-price" id="modal-price">Rs. 0.00</span>
+                    <p class="modal-desc" id="modal-desc">Detailed description of the product goes here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script integration -->
+    <script src="script.js"></script>
+</body>
+</html>
