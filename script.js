@@ -493,6 +493,12 @@ function openProductDetail(product) {
     modalImg.src = product.img;
     modalImg.alt = product.name;
 
+    // Dynamically set WhatsApp link with product details
+    const waBtn = document.getElementById('modal-wa-btn');
+    if (waBtn) {
+        waBtn.href = `https://wa.me/916303474403?text=Hi%20RedFlower%20Studio,%20I%20am%20interested%20in%20ordering%20the%20"${encodeURIComponent(product.name)}"%20for%20${encodeURIComponent(product.price)}.`;
+    }
+
     modal.style.display = 'flex';
     setTimeout(() => {
         modal.classList.add('show');
@@ -515,7 +521,15 @@ function closeProductModal(event) {
 function handleFormSubmit(event) {
     event.preventDefault();
     
-    const name = document.getElementById('name').value;
+    const nameInput = event.target.querySelector('input[type="text"]');
+    const name = nameInput ? nameInput.value : 'Customer';
+
+    // Auto-close Contact Popup if form was inside it
+    if (event.target.closest('#contact-popup')) {
+        setTimeout(() => {
+            closeContactPopup();
+        }, 1000);
+    }
 
     const alertBox = document.createElement('div');
     alertBox.style.position = 'fixed';

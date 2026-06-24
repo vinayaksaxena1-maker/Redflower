@@ -1077,6 +1077,8 @@ section {
     align-items: center;
     opacity: 0;
     transition: opacity 0.4s ease;
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 40px 10px; /* Comfort spacing for scrollable modal */
 }
 
 .modal-overlay.show {
@@ -1095,6 +1097,7 @@ section {
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
     transform: scale(0.9);
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    margin: auto; /* Center with flexbox and ensure spacing for overflow scrolling */
 }
 
 .modal-overlay.show .modal-box {
@@ -1192,6 +1195,7 @@ section {
     box-shadow: 0 4px 15px var(--glass-glow);
     transition: all 0.3s ease;
     align-self: flex-start;
+    text-decoration: none; /* Prevent underline when markup is link anchor */
 }
 
 .modal-cta-btn:hover {
@@ -2328,6 +2332,17 @@ body.light-theme .home-sub-section {
     grid-template-columns: 1.1fr 1fr;
     gap: 30px;
     align-items: center;
+}
+
+.contact-popup-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+}
+
+body.light-theme .contact-popup-desc {
+    color: rgba(0, 0, 0, 0.65);
 }
 
 .popup-contact-details {
